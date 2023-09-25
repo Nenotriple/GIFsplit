@@ -1,6 +1,3 @@
-# This script extracts frames from a GIF file and saves them as PNG images in a new directory.
-# To use this script, drag and drop your GIF file(s) onto the script, or by commandline: python GIFsplit.py [gif_path1, gif_path2] ...
-
 import sys, os
 from PIL import Image
 import tkinter as tk
@@ -37,22 +34,25 @@ def gif_to_png(gif_path, label, current_gif, total_gifs, stop_button):
     output_folder = os.path.join(os.path.dirname(gif_path), filename)
     os.makedirs(output_folder, exist_ok=True)
 
-    # Open the GIF image and save each frame as a PNG image
-    img = Image.open(gif_path)
-    for i in range(img.n_frames):
-        if stop: break
-        img.seek(i)
-        img.save(f'{output_folder}/frame_{i}.png')
-        total_frames += 1
-        label.config(text=f'{current_gif} of {total_gifs} \n\n Frame: {i+1} of {img.n_frames}, Total Frames: {total_frames}')
-        label.update()
-
-        # Update the label text when all GIFs are processed
-        if current_gif == total_gifs and i == img.n_frames - 1:
-            label.config(text=f"Done! - Total GIFs processed: {total_gifs} \n\n Total Frames processed: {total_frames}")
-            stop_button.config(text="Close Window")
-            stop = True
+    try:
+        # Open the GIF image and save each frame as a PNG image
+        img = Image.open(gif_path)
+        for i in range(img.n_frames):
+            if stop: break
+            img.seek(i)
+            img.save(f'{output_folder}/frame_{i}.png')
+            total_frames += 1
+            label.config(text=f'{current_gif} of {total_gifs} \n\n Frame: {i+1} of {img.n_frames}, Total Frames: {total_frames}')
             label.update()
+
+            # Update the label text when all GIFs are processed
+            if current_gif == total_gifs and i == img.n_frames - 1:
+                label.config(text=f"Done! - Total GIFs processed: {total_gifs} \n\n Total Frames processed: {total_frames}")
+                stop_button.config(text="Close Window")
+                stop = True
+                label.update()
+    except IOError:
+        print(f"Error opening file {gif_path}. Please check if the file exists and is a valid GIF image.")
 
 # Function to process multiple GIF images
 def process_gifs(gif_paths, label, stop_button):
@@ -65,7 +65,7 @@ def process_gifs(gif_paths, label, stop_button):
 if len(sys.argv) > 1:
     root = tk.Tk()
     root.geometry('250x120')
-    root.title("v1.02 - GIFsplit")
+    root.title("v1.03 - GIFsplit")
     root.resizable(False, False)
 
     label = tk.Label(root)
