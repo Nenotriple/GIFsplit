@@ -1,3 +1,6 @@
+# This script extracts frames from a GIF file and saves them as PNG images in a new directory.
+# To use this script, drag and drop your GIF file(s) onto the script, or by commandline: python GIFsplit.py [gif_path1, gif_path2] ...
+
 import sys, os
 from PIL import Image
 import tkinter as tk
