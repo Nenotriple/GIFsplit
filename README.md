@@ -9,6 +9,11 @@ The script accepts a GIF file as input, traverses through each frame in the GIF,
 **Usage Instructions**
 
 1. Install the Pillow library via pip using the command: `pip install pillow`
-2. Execute the script by dragging and dropping your .gif file(s) onto the .pyw script.
-3. The script will create a new directory in the same location as your GIF file.
-4. Each frame of the GIF will be saved as an individual .png image within this directory.
+2. Execute the script in one of 3 ways:
+- **Drag and Drop**: Simply drag and drop your GIF(s) onto the script with .pyw extension.
+- **File Dialog**: Just run the script and it will open a file dialog where you can choose your GIF(s)
+- **Command Line**: Example: ```python GIFsplit.pyw "gif 1.gif" "gif 2.gif" "gif 3.gif"...```
+
+The script will create a new directory in the same location as your GIF file.
+
+Each frame of the GIF will be saved as an individual .png image within this directory.
