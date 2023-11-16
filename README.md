@@ -8,7 +8,7 @@ This script accepts GIF file(s) as input, then processes them by traversing thro
 
 ## 🚩Usage Instructions
 
-Download the **[executable version ✨](https://github.com/Nenotriple/GIFsplit/releases/tag/Standalone)**
+Download the **[executable version ✨](https://github.com/Nenotriple/GIFsplit/releases)**
 
 Clone the **[Python script 🐍](https://github.com/Nenotriple/GIFsplit/blob/main/GIFsplit.pyw)**
 
@@ -16,3 +16,4 @@ Clone the **[Python script 🐍](https://github.com/Nenotriple/GIFsplit/blob/mai
   - **Drag and Drop**: Simply drag and drop your GIF(s) onto the .exe file.
   - **File Dialog**: Just double-click the executable and it will open a file dialog where you can choose your GIF(s).
   - **Command Line**: Example: `./GIFsplit.exe "gif 1.gif" "gif 2.gif" "gif 3.gif"...`
+    - Use the argument `--noui` to disable the app window.
